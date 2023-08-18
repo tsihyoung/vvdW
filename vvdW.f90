@@ -38,7 +38,7 @@ program vdW_volume
         volume = volume + sphere_volume(radius(i))
         do j = 1, i - 1
             d = norm2(xyz(:,i) - xyz(:,j))
-            volume = volume + intersection_volume(radius(i), radius(j), d)
+            volume = volume - intersection_volume(radius(i), radius(j), d)
         end do
     end do
     !$OMP END PARALLEL DO
